@@ -40,8 +40,10 @@ pip install -r requirements.txt
 
 | Tool | Input directory | File extension |
 |---|---|---|
-| `py_similarity_kpi.py` | `Tools/Similarity/Python/` | `.py` |
-| `yaml_similarity_kpi.py` | `Tools/Similarity/Yaml/` | `.yml` or `.yaml` |
+| `py_similarity_kpi.py` | `Tools/Similarity/Input_Python/` | `.py` |
+| `yaml_similarity_kpi.py` | `Tools/Similarity/Input_Yaml/` | `.yml` or `.yaml` |
+
+When done with a run, use `archive.py` to move files out of the input directories.
 
 Drop all generated files for a single agent run into the relevant subdirectory.
 The tool automatically picks the **oldest file by creation date** as the reference
@@ -57,14 +59,28 @@ Make sure the venv is activated, then from `Tools/Similarity/`:
 
 ```bash
 # Python similarity KPI
-python py_similarity_kpi.py
+python Scripts/py_similarity_kpi.py
 
 # YAML similarity KPI
-python yaml_similarity_kpi.py
+python Scripts/yaml_similarity_kpi.py
 
 # Optional: override the similarity threshold (default 0.95)
-python py_similarity_kpi.py --threshold 0.90
-python yaml_similarity_kpi.py --threshold 0.90
+python Scripts/py_similarity_kpi.py --threshold 0.90
+python Scripts/yaml_similarity_kpi.py --threshold 0.90
+```
+
+---
+
+## Archiving files
+
+Use `archive.py` to move files from the input directories into `Archives/`.
+
+```bash
+# Move ALL files from both Input_Python/ and Input_Yaml/ to Archives/
+python Scripts/archive.py
+
+# Move only report .md files, keeping the most recent one in each input directory
+python Scripts/archive.py --reports
 ```
 
 ---
@@ -89,12 +105,17 @@ The report contains:
 
 ```
 Tools/Similarity/
-  py_similarity_kpi.py        ← Python similarity tool
-  yaml_similarity_kpi.py      ← YAML similarity tool
+  Scripts/                    ← scripts folder
+    py_similarity_kpi.py      ← Python similarity tool
+    yaml_similarity_kpi.py    ← YAML similarity tool
+    archive.py                ← archiving tool
   requirements.txt            ← pyyaml dependency
   .venv/                      ← virtual environment (not committed)
-  Python/                     ← drop .py files here
-  Yaml/                       ← drop .yml / .yaml files here
+  Input_Python/               ← drop .py files here
+  Input_Yaml/                 ← drop .yml / .yaml files here
   Py_SimilarityKPI_*.md       ← generated reports
   Yaml_SimilarityKPI_*.md     ← generated reports
+  Archives/
+    Input_Python/             ← archived .py files and reports
+    Input_Yaml/               ← archived .yml/.yaml files and reports
 ```

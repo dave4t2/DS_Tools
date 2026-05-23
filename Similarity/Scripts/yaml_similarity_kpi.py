@@ -1,10 +1,10 @@
 """
 yaml_similarity_kpi.py
-Compare all YAML files in Tools/Similarity/Yaml/ against the first file
+Compare all YAML files in Tools/Similarity/Input_Yaml/ against the first file
 (sorted by creation date) and produce a Markdown KPI report.
 
 Usage:
-    python yaml_similarity_kpi.py [--threshold 0.95]
+    python Scripts/yaml_similarity_kpi.py [--threshold 0.95]
 """
 
 import argparse
@@ -15,7 +15,7 @@ from pathlib import Path
 
 import yaml
 
-INPUT_DIR = Path(__file__).parent / "Yaml"
+INPUT_DIR = Path(__file__).parent.parent / "Input_Yaml"
 DEFAULT_THRESHOLD = 0.95
 
 

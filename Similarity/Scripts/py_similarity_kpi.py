@@ -1,10 +1,10 @@
 """
 py_similarity_kpi.py
-Compare all Python files in Tools/Similarity/Python/ against the first file
+Compare all Python files in Tools/Similarity/Input_Python/ against the first file
 (sorted by creation date) and produce a Markdown KPI report.
 
 Usage:
-    python py_similarity_kpi.py [--threshold 0.95]
+    python Scripts/py_similarity_kpi.py [--threshold 0.95]
 """
 
 import argparse
@@ -15,7 +15,7 @@ from datetime import datetime
 from difflib import SequenceMatcher
 from pathlib import Path
 
-INPUT_DIR = Path(__file__).parent / "Python"
+INPUT_DIR = Path(__file__).parent.parent / "Input_Python"
 DEFAULT_THRESHOLD = 0.95
 
 

@@ -11,8 +11,8 @@ Two standalone Python scripts, one per file type:
 
 | Script | Input directory | Output file |
 |---|---|---|
-| `py_similarity_kpi.py` | `Tools/Similarity/Python/` | `Py_SimilarityKPI_yyyymmddhhmm.md` |
-| `yaml_similarity_kpi.py` | `Tools/Similarity/Yaml/` | `Yaml_SimilarityKPI_yyyymmddhhmm.md` |
+| `py_similarity_kpi.py` | `Tools/Similarity/Input_Python/` | `Py_SimilarityKPI_yyyymmddhhmm.md` |
+| `yaml_similarity_kpi.py` | `Tools/Similarity/Input_Yaml/` | `Yaml_SimilarityKPI_yyyymmddhhmm.md` |
 
 `yyyymmddhhmm` is the timestamp of the script execution.
 Output files are written in the same directory as the script (`Tools/Similarity/`).
