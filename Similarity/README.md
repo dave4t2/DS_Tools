@@ -14,7 +14,7 @@ Python 3.11+ must be available on your PATH.
 ## Installation
 
 From the `Tools/Similarity/` directory, create and activate the virtual environment
-then install dependencies:
+then install dependencies :
 
 ```bash
 # Create venv (one-time)
